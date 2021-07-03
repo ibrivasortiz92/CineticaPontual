@@ -13,8 +13,8 @@ document.getElementById("calculate").addEventListener("click",()=>{
     [fnr / tm, -cd]
   ];
   let b = [
-    [p],
-    [fnr * p / (cd * tm)]
+    [1],
+    [fnr / (cd * tm)]
   ];
 
   // Solução exata
@@ -33,7 +33,7 @@ document.getElementById("calculate").addEventListener("click",()=>{
       csum = csum + c[i] * vects[1][i] * numeric.exp(vals[i] * h * t);
     }
     TEMP[0][t] = h*t;
-    ESOL[0][t] = psum;
+    ESOL[0][t] = psum * p;
     ESOL[1][t] = csum;
   }
   
@@ -97,6 +97,9 @@ document.getElementById("calculate").addEventListener("click",()=>{
       NSOL[0][k] = NSOL[0][k-1] + (k1[0] + 2 * k2[0] + 2 * k3[0] + k4[0]) / 6;
       NSOL[1][k] = NSOL[1][k-1] + (k1[1] + 2 * k2[1] + 2 * k3[1] + k4[1]) / 6;
     }
+  }
+  for (let i = 0; i <= n; i++){
+    NSOL[0][i] = NSOL[0][i] * p;
   }
 
   let nresults = document.getElementById("nresults");
