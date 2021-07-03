@@ -153,6 +153,7 @@ document.getElementById("calculate").addEventListener("click",()=>{
       tickmode: "auto",
       exponentformat: "E",
       showexponent: "all",
+      rangemode: "tozero"
     }
   };
   Plotly.newPlot('chart', data, layout);
